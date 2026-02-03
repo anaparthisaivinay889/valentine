@@ -14,10 +14,10 @@
       font-family: 'Arial', sans-serif;
       overflow: hidden;
       margin: 0;
-      position: relative; /* Needed for pseudo-element */
+      position: relative;
     }
 
-    /* Blurred background image layer */
+    /* Blurred background image */
     body::before {
       content: "";
       position: fixed;
@@ -27,22 +27,22 @@
       height: 100%;
       background: url('valentine-bg.png') no-repeat center center fixed;
       background-size: cover;
-      filter: blur(8px); /* Adjust blur strength */
-      z-index: -1;       /* Keep it visually behind */
-      pointer-events: none; /* Allow clicks to pass through */
+      filter: blur(8px);
+      z-index: -1;
+      pointer-events: none;
     }
 
     h1 { 
       color: #000000; 
       text-align: center;
-      margin-top: 200px;
+      margin-bottom: 40px; /* push heading down a bit */
     }
 
     .buttons { 
       margin-top: 20px; 
       position: relative; 
-      width: 100%; 
-      height: 100%; 
+      width: 300px; 
+      height: 100px; 
     }
 
     button {
@@ -58,15 +58,15 @@
     #yesBtn { 
       background-color: #4caf50; 
       color: white; 
-      left: 40%;
-      top: 40%;
+      left: 50px;
+      top: 20px;
     }
 
     #noBtn {
       background-color: #f44336;
       color: white;
-      left: 55%;
-      top: 40%;
+      left: 180px;
+      top: 20px;
     }
   </style>
 </head>
@@ -82,6 +82,7 @@
   <script>
     const noBtn = document.getElementById('noBtn');
 
+    // Move button when mouse gets close (desktop only)
     document.addEventListener('mousemove', (event) => {
       const rect = noBtn.getBoundingClientRect();
       const mouseX = event.clientX;
